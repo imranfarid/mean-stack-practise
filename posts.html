@@ -4,22 +4,20 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     </head>
     <body ng-app='app'>
-        <div class="container">
+        <div ng-controller='PostsCTRL' class="container">
             <h1>Recent Posts</h1>
             <ul class='list-group'>
                 <li class='list-group-item'>
-                    <strong>@imran</strong>
-                    <span>Node rules!</span>
+                    <strong>{{posts[0].username}}</strong>
+                    <span>{{posts[0].body}}</span>
                 </li>
                 <li class='list-group-item'>
-                    <strong>@jeffdicky</strong>
-                    <span>Trying out angular.js...</span>
+                    <strong>{{posts[1].username}}</strong>
+                    <span>{{posts[1].body}}</span>
                 </li>
             </ul>
         </div>
-        <div ng-controller='PostsCTRL'>
-            {{posts[0].body}}
-        </div>
+
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script>
         var app = angular.module('app', [])
