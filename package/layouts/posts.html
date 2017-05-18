@@ -2,7 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <title>MEAN Social App by Jeff</title>
+        <title>MEAN Social App by Jeff D</title>
     </head>
     <body ng-app='app'>
         <div ng-controller='PostsCTRL' class="container">
@@ -72,7 +72,7 @@
             $http({
                 method: 'GET',
                 url: 'http://localhost:3000/api/posts'
-            }).then(function (sucess){
+            }).then(function successCallback(posts){
                 $scope.posts = posts
             });
         })

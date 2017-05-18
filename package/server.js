@@ -5,6 +5,11 @@ var Post = require('./models/post')
 var app = express()
 app.use(bodyParser.json())
 
+
+app.get('/', function(req, res){
+    res.sendfile('layouts/posts.html')
+})
+
 app.get('/api/posts', function(req, res){
     res.json([
         {
@@ -13,6 +18,7 @@ app.get('/api/posts', function(req, res){
         }
     ])
 })
+
 
 /*
 app.post('/api/posts', function(req, res){
