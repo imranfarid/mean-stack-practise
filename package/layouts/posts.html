@@ -36,16 +36,33 @@
         app.controller('PostsCTRL', function($scope, $http){
             
             //function when "Add Post" button is clicked
+            // $scope.addPost = function(){
+            //     //only add a post if there is a body
+            //     if($scope.postBody){
+            //         //unshift new post into $scope.posts
+            //         $scope.posts.unshift({
+            //         username: 'dickeyxxx',
+            //         body: $scope.postBody //text entered
+            //         })
+            //         //clearing input field
+            //         $scope.postBody = null
+            //     }
+            // }
+
             $scope.addPost = function(){
-                //only add a post if there is a body
                 if($scope.postBody){
-                    //unshift new post into $scope.posts
-                    $scope.posts.unshift({
-                    username: 'dickeyxxx',
-                    body: $scope.postBody //text entered
+                    $http({
+                        method: 'POST',
+                        url: 'http://localhost:3000/api/posts',
+                        data: {
+                            username: 'dickeyxxx',
+                            body: $scope.postBody
+                        }
                     })
-                    //clearing input field
-                    $scope.postBody = null
+                    .then(function(post){
+                        $scope.posts.unshift(post)
+                        $scope.postBody = null
+                    });    
                 }
             }
 
@@ -74,6 +91,8 @@
                 url: 'http://localhost:3000/api/posts'
             }).then(function successCallback(posts){
                 $scope.posts = posts
+                console.log("http get working")
+                console.log(posts)
             });
         })
         </script>
